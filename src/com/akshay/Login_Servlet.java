@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
-public class ServletA extends HttpServlet {
+public class Login_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 
 	{
-		String st = request.getParameter("username");
-		String str = request.getParameter("password");
+		String user = request.getParameter("username");
+		String password = request.getParameter("password");
 		PrintWriter out = response.getWriter();
 		Dao da = new Dao();
 
-		if (da.check(st, str)) {
+		if (da.check(user, password)) {
 			out.println("<html><body>Login Successfull</body></html>");
 		} else
 			out.println("<html><body>Failure</body></html>");
